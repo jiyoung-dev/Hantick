@@ -11,4 +11,7 @@ public interface UserService {
 	
 	/* 전체 사원리스트 조회 */
 	public List<UserDto> getUserList();
+	
+	/* 전체 멘토리스트 조회 */
+	public List<UserDto> getMentorList();
 }

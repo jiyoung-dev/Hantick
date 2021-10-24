@@ -1,23 +1,20 @@
 package com.hantick;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.junit.jupiter.api.DisplayName;
+import org.mockito.Mock;
 
 import com.hantick.dao.UserMapper;
 import com.hantick.dto.UserDto;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
 class HantickApplicationTests {
 
-	@Autowired
-	private UserMapper uMapper;
+	@Mock
+	UserMapper uMapper;
 	
 	@Test
-	public void 유저정보_불러오기_테스트() {
+	@DisplayName("유저정보 상세조회")
+	public void detail() {
 		UserDto user = new UserDto();
 		user.getId_seq();
 		user.getName();

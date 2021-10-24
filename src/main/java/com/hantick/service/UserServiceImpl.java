@@ -23,4 +23,9 @@ public class UserServiceImpl implements UserService{
 	public List<UserDto> getUserList() {
 		return uMapper.selectAllUser();
 	}
+	
+	@Override
+	public List<UserDto> getMentorList() {
+		return uMapper.selectAllMentor();
+	}
 }

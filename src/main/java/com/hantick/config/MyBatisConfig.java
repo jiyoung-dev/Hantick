@@ -18,7 +18,7 @@ public class MyBatisConfig {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         
         sqlSessionFactory.setDataSource(dataSource);
-        sqlSessionFactory.setTypeAliasesPackage("com.hantick.dto");
+//        sqlSessionFactory.setTypeAliasesPackage("com.hantick.dto");
         
         return sqlSessionFactory.getObject();
     }

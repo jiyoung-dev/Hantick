@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hantick.dto.UserDto;
 import com.hantick.service.UserService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 public class MainController {
 	
 	@GetMapping("/index")
@@ -19,17 +20,21 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("/mentorlist")
-	public String mentorlist() {
-		return "mentorlist";
-	}
-	
 	// db에서 user정보 불러오기 
 	@Autowired
 	UserService userService;
 	
-	@GetMapping("/test")
-	public List<UserDto> test() {
-		return userService.getUserList();
+//	@GetMapping("/mentorlist")
+//	public List<UserDto> mentorlist() {
+//		return userService.getUserList();
+//	}
+	
+	@GetMapping("/mentorlist")
+	public ModelAndView mentorlist() {
+		List<UserDto> mentorList = userService.getMentorList();
+		ModelAndView mav = new ModelAndView("mentorlist");
+		mav.addObject("mentorList", mentorList);
+		return mav;
 	}
+	
 }
