@@ -14,6 +14,10 @@
 <!-- common CSS -->
 <link rel="stylesheet" href="<c:url value='/resources/common/css/common.css'/>" >
 
+<!-- Hantick CSS -->
+<!-- ? ¿Ö Àû¿ë¾ÈµÊ -->
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
 <style type="text/css">
 	.mentor_list {
 		display: flex;
