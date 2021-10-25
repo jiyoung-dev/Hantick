@@ -22,7 +22,7 @@
 
 <body>
 <!-- Nav Bar -->
-<nav class="navbar navbar-expand navbar-dark bg-primary">
+<nav class="navbar navbar-expand navbar-dark bg-success">
   <a class="navbar-brand" href="index">Hantick</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
 <div class="top-container">
 	<!-- Random Button -->
 	<div class="random-btn">
-		<button type="button" class="btn btn-primary">·£´ý¸ÅÄª</button>
+		<button type="button" class="btn btn-success">·£´ý¸ÅÄª</button>
 	</div>
 
 	<!-- Select Box -->
@@ -74,7 +74,7 @@
 			</div>
 			<div class="text">
 				<h6>${user_info.department_name} ${user_info.name} ${user_info.position_name}</h6>
-				<button type="button" class="btn btn-primary">¼±ÅÃÇÏ±â</button>
+				<button type="button" class="btn btn-success">¼±ÅÃÇÏ±â</button>
 			</div>
 		</div>
 		</c:forEach>
