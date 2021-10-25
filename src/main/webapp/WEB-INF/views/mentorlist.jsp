@@ -46,12 +46,12 @@
 <!-- Top Container -->
 <div class="top-container">
 	<!-- Random Button -->
-	<span class="random-btn">
+	<div class="random-btn">
 		<button type="button" class="btn btn-primary">랜덤매칭</button>
-	</span>
+	</div>
 
 	<!-- Select Box -->
-	<span class="select-box" style="float: right">
+	<div class="select-box" >
 		<select name = "department-category">
 			<option value="" selected="selected">전체보기</option>
 			<option value="">IPCC1</option>
@@ -60,7 +60,7 @@
 			<option value="">AICC</option>
 			<option value="">SE</option>
 		</select>
-	</span>
+	</div>
 </div>
 
 <!-- Mentor List -->

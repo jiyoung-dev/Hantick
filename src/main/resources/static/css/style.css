@@ -1,16 +1,19 @@
 @CHARSET "UTF-8";
 
 .top-container {
-	padding: 15px 0px 0px 1111px; /* 상우하좌 */	
+	padding: 15px 0px 0px 1111px; /* 상우하좌 */
+	display: inline-flex;	
 }
 
 
 .random-btn {
-	margin: 15px 20px 0px 0px; /* 상우하좌 */	
+	/*margin: 15px 205px 0px 0px;  상우하좌 */	
+	float: right;
 }
 
 .select-box {
-	margin: 15px 205px 0px 0px; /* 상우하좌 */
+	/*margin: 15px 205px 0px 0px;  상우하좌 */
+	float: right;
 }
 
 .mentor-list .container{
