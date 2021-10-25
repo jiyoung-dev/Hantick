@@ -15,24 +15,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/common/css/common.css'/>" >
 
 <!-- Hantick CSS -->
-<!-- ? 왜 적용안됨 -->
 <link rel="stylesheet" href="css/style.css" type="text/css">
-
-<style type="text/css">
-	.mentor_list {
-		display: flex;
-		flex-wrap: wrap; /* 상위요소 너비보다 하위요소 너비가 큰 경우 줄바꿈*/
-		justify-content: space-between;
-	}
-	.mentor_list .card {
-		border: 1px solid #eee;
-		border-radius: 5px;
-		height: 350px;
-		width: 250px;
-		padding: 5px;
-		margin-bottom: 10px;
-	}
-</style>
 
 <title>멘토리스트</title>
 </head>
@@ -60,23 +43,44 @@
   </div>
 </nav>
 
+<!-- Top Container -->
+<div class="top-container">
+	<!-- Random Button -->
+	<span class="random-btn">
+		<button type="button" class="btn btn-primary">랜덤매칭</button>
+	</span>
+
+	<!-- Select Box -->
+	<span class="select-box" style="float: right">
+		<select name = "department-category">
+			<option value="" selected="selected">전체보기</option>
+			<option value="">IPCC1</option>
+			<option value="">IPCC2</option>
+			<option value="">IPCC3</option>
+			<option value="">AICC</option>
+			<option value="">SE</option>
+		</select>
+	</span>
+</div>
+
 <!-- Mentor List -->
-<h1>Mentor List</h1>
-<div class="mentor_list">
-	<!-- user 정보를 반복문을 통해 card 형식으로 출력함 -->
-	<!-- 직책, 부서 dto 생성해야함 -->
-	<c:forEach var="user_info" items="${mentorList}">
-	<div class="card">
-		<div class="img">
-			<img src=".img/card1.jpg" alt="">
+<div class="mentor-list">
+	<div class="container">
+		<!-- user 정보를 반복문을 통해 card 형식으로 출력함 -->
+		<c:forEach var="user_info" items="${data}">
+		<div class="card">
+			<div class="img">
+				<img src="img/card1.jpg" alt="">
+			</div>
+			<div class="text">
+				<h6>${user_info.department_name} ${user_info.name} ${user_info.position_name}</h6>
+				<button type="button" class="btn btn-primary">선택하기</button>
+			</div>
 		</div>
-		<div class="text">
-			<h3>부서명:${user_info.department_name}, 이름:${user_info.name}, 직책: ${user_info.position_name}</h3>
-			<button type="button" class="btn btn-primary">선택하기</button>
-			</c:forEach>
-		</div>
+		</c:forEach>
 	</div>
 </div>
+
 
 </body>
 </html>

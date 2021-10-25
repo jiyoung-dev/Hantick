@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+.top-container {
+	padding: 15px 0px 0px 1111px; /* 상우하좌 */	
+}
+
+
+.random-btn {
+	margin: 15px 20px 0px 0px; /* 상우하좌 */	
+}
+
+.select-box {
+	margin: 15px 205px 0px 0px; /* 상우하좌 */
+}
+
+.mentor-list .container{
+	display: inline-flex;
+	margin: 20px 10px 30px 190px; /* 상우하좌 */
+	flex-wrap: wrap; /* 상위요소 너비보다 하위요소 너비가 큰 경우 줄바꿈*/
+	justify-content: space-between;
+}
+
+.mentor-list .card {
+	border: 1px solid #eee;
+	border-radius: 5px;
+	height: 350px;
+	width: 250px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.mentor-list .card .img {
+	height: 200px;
+	width: 250px;
+}
