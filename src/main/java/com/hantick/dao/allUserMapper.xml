@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hantick.dao.AllUserMapper">
+	<select id="selectAll" resultType="com.hantick.dto.AllUserDTO">
+		SELECT * FROM user_info
+	</select>
+	
+	<select id="selectOne" resultType="com.hantick.dto.AllUserDTO">
+		SELECT * FROM user_info WHERE id_seq = #{id_seq}
+	</select>
+	
+	<!-- 멘토링 신청하기 -->
+	<insert id="insertForm" parameterType="com.hantick.dto.MentoringListDTO">
+		INSERT INTO mydb.mentoring_list (mentoringform_id_seq, mentee_id_seq, mentor_id_seq, subject, way, content, review_flag, status, regdate) 
+		VALUES ((select *from (select max(mentoringform_id_seq)+1 from mydb.mentoring_list) next), #{mentee_id_seq}, #{mentee_id_seq}, #{subject}, #{way}, #{content}, DEFAULT, DEFAULT, DEFAULT);
+	</insert>
+</mapper>
