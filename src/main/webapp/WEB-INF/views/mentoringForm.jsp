@@ -42,23 +42,10 @@
     </form>
   </div>
 </nav>
-	랜덤선택 버튼 클릭후 보이는 신청폼 페이지.
-	${data.name }
-	${data.position_name }
+	랜덤선택 or 지정선택 버튼 클릭후 보이는 신청폼 페이지.<br>
+	${data.id_seq}
+	${data.name}
+	${data.position_name}
 	${data.department_name}
-<%-- 	<c:forEach var="user_info" items="${data}">
-		<div class="random_mentor_info">
-			${user_info.department_name}
-			${user_info.name}
-			${user_info.position_name}
-		</div>
-	</c:forEach> --%>
-
-	<!-- 랜덤버튼 클릭이벤트 -->
-	<script>
-	$(document).on('click', '#btnRandom', function() {
-		location.href = "${pageContext.request.contextPath}/mentoringForm";
-	});
-	</script>
 </body>
 </html>

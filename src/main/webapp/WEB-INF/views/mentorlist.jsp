@@ -47,7 +47,7 @@
 <div class="top-container">
 	<!-- Random Button -->
 	<div class="random-btn">
-		<button type="button" onclick="fn_randomMatch()" class="btn btn-success" id="btnRandom" value="랜덤매칭">랜덤매칭</button>
+		<button type="button" onclick="fn_goMentoringForm()" class="btn btn-success" id="btnRandom" value="랜덤매칭">랜덤매칭</button>
 	</div>
 
 	<!-- Select Box -->
@@ -74,21 +74,42 @@
 			</div>
 			<div class="text">
 				<h6>${user_info.department_name} ${user_info.name} ${user_info.position_name}</h6>
-				<button type="button" class="btn btn-success">선택하기</button>
+				<button type="button" onclick="fn_goMentoringForm()" class="btn btn-success" id="btnAppointed" value="지정선택">선택하기</button>
 			</div>
 		</div>
 		</c:forEach>
 	</div>
 </div>
 
-<!-- 랜덤버튼 클릭이벤트 함수 -->
+<!-- mentoringForm.jsp으로 이동 클릭이벤트 함수 -->
 <script>
-	function fn_randomMatch() {
+	function fn_goMentoringForm(event) {
 		 
 		var url = "${pageContext.request.contextPath}/mentoringForm";
 		location.href = url; 
 		
 	}
+	
+	var btnRandom = document.getElementById("btnRandom");
+	/* var btnAppointed = document.getElementById("btnAppointed"); */
+	var btnAppointed = document.querySelectorAll(".text #btnAppointed"); 
+	
+	btnRandom.addEventListener("click", function() {
+		alert("랜덤버튼 눌렀습니다!!!");
+	});
+	
+	// 지정선택 버튼은 반복문이라 js에서 이벤트호출도 반복문 돌려야함. 현재는 첫번째 버튼에만 이벤트 걸림
+	/* btnAppointed.addEventListener("click", function() {
+		alert("지정선택버튼 눌렀습니다!!!");
+	}); */
+	
+	for(var i=0; i<btnAppointed.length; i++) {
+		btnAppointed[i].addEventListener("click", function() {
+			alert("지정버튼 눌렀습니다!!!");
+		})
+	}
+	
+	
 </script>
 
 
