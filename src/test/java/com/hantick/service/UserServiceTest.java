@@ -16,18 +16,23 @@ public class UserServiceTest {
 	private UserService uService;
 	
 	@Test
-	public void 유저정보_불러오기_테스트() {
-		UserDto user = new UserDto();
-		user.getId_seq();
-		user.getName();
-		user.getMail();
-		user.getDepartment_seq();
-		user.getPosition_seq();
-		user.getPhoto();
-		user.getPoint();
+	public void 유저정보_조회_테스트() {
 		
 		System.out.println(uService.getUser(1));
 		System.out.println(uService.getUserList());
+	}
+	
+	@Test
+	public void 멘토리스트_조회_테스트() {
+		
+		System.out.println(uService.getMentorList());
+	}
+	
+	@Test
+	public void 랜덤한사원_조회_테스트() {
+		
+		System.out.println(uService.getRandomMentor());
+		
 	}
 	
 }

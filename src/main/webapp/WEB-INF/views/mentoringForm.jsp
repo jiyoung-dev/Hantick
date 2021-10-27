@@ -17,7 +17,7 @@
 <!-- Hantick CSS -->
 <link rel="stylesheet" href="css/style.css" type="text/css">
 
-<title>멘토리스트</title>
+<title>멘토링 신청폼</title>
 </head>
 
 <body>
@@ -42,56 +42,20 @@
     </form>
   </div>
 </nav>
-
-<!-- Top Container -->
-<div class="top-container">
-	<!-- Random Button -->
-	<div class="random-btn">
-		<button type="button" onclick="fn_randomMatch()" class="btn btn-success" id="btnRandom" value="랜덤매칭">랜덤매칭</button>
-	</div>
-
-	<!-- Select Box -->
-	<div class="select-box" >
-		<select name = "department-category">
-			<option value="" selected="selected">전체보기</option>
-			<option value="">IPCC1</option>
-			<option value="">IPCC2</option>
-			<option value="">IPCC3</option>
-			<option value="">AICC</option>
-			<option value="">SE</option>
-		</select>
-	</div>
-</div>
-
-<!-- 전체 멘토리스트 조회 -->
-<div class="mentor-list">
-	<div class="container">
-		<!-- user 정보를 반복문을 통해 card 형식으로 출력함 -->
-		<c:forEach var="user_info" items="${data}">
-		<div class="card">
-			<div class="img">
-				<img class="mentor_img" width="200" height="200" src="img/card1.jpg" alt="">
-			</div>
-			<div class="text">
-				<h6>${user_info.department_name} ${user_info.name} ${user_info.position_name}</h6>
-				<button type="button" class="btn btn-success">선택하기</button>
-			</div>
+	랜덤선택 버튼 클릭후 보이는 신청폼 페이지.
+	<c:forEach var="user_info" items="${data}">
+		<div class="random_mentor_info">
+			${user_info.department_name}
+			${user_info.name}
+			${user_info.position_name}
 		</div>
-		</c:forEach>
-	</div>
-</div>
+	</c:forEach>
 
-<!-- 랜덤버튼 클릭이벤트 함수 -->
-<script>
-	function fn_randomMatch() {
-		 
-		var url = "${pageContext.request.contextPath}/mentoringForm";
-		location.href = url; 
-		
-	}
-</script>
-
-
+	<!-- 랜덤버튼 클릭이벤트 -->
+	<script>
+	$(document).on('click', '#btnRandom', function() {
+		location.href = "${pageContext.request.contextPath}/mentoringForm";
+	});
+	</script>
 </body>
 </html>
-

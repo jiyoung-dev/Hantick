@@ -28,4 +28,10 @@ public class UserServiceImpl implements UserService{
 	public List<UserDto> getMentorList() {
 		return uMapper.selectAllMentor();
 	}
+	
+	@Override
+	public List<UserDto> getRandomMentor() {
+		return uMapper.selectRandomMentor();
+	}
+	 
 }

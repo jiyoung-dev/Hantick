@@ -16,4 +16,13 @@
 		left join position on user_info.position_seq = position.position_seq 
 		join department on user_info.department_seq = department.department_seq
 	</select>
+	
+	<select id="selectRandomMentor" resultType="com.hantick.dto.UserDto">
+		select department.department_name, user_info.name, position.position_name
+		from user_info 
+		left join position on user_info.position_seq = position.position_seq 
+		join department on user_info.department_seq = department.department_seq 
+		order by rand() limit 1; 
+	</select>
+	
 </mapper>

@@ -14,4 +14,7 @@ public interface UserService {
 	
 	/* 전체 멘토리스트 조회 */
 	public List<UserDto> getMentorList();
+	
+	/* 랜덤한 사원데이터 조회 */
+	public List<UserDto> getRandomMentor();
 }

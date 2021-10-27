@@ -9,5 +9,6 @@ public interface UserMapper {
 	public UserDto selectOneUser (int id_seq);
 	public List<UserDto> selectAllUser();
 	public List<UserDto> selectAllMentor();
+	public List<UserDto> selectRandomMentor();
 	
 }

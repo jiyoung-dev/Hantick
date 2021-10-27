@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hantick.dto.UserDto;
@@ -27,4 +29,17 @@ public class MentorlistController {
 		return mav;
 	}
 	
+	@GetMapping("/mentoringForm")
+	public ModelAndView mentoringForm() {
+		List<UserDto> randomMentor = userService.getRandomMentor();
+		ModelAndView mav = new ModelAndView("mentoringForm");
+		mav.addObject("data", randomMentor);
+		return mav;
+	}
+	
+//	@RequestMapping(value = "/getRandomMentor", method = RequestMethod.GET)
+//	public String getRandomMentor(Model model) throws Exception {
+//		model.addAttribute("mentoringForm", userService.getRandomMentor());
+//		return "mentoringForm";
+//	}
 }
