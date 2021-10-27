@@ -16,5 +16,5 @@ public interface UserService {
 	public List<UserDto> getMentorList();
 	
 	/* 랜덤한 사원데이터 조회 */
-	public List<UserDto> getRandomMentor();
+	public UserDto getRandomMentor();
 }

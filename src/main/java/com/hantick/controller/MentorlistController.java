@@ -31,7 +31,7 @@ public class MentorlistController {
 	
 	@GetMapping("/mentoringForm")
 	public ModelAndView mentoringForm() {
-		List<UserDto> randomMentor = userService.getRandomMentor();
+		UserDto randomMentor = userService.getRandomMentor();
 		ModelAndView mav = new ModelAndView("mentoringForm");
 		mav.addObject("data", randomMentor);
 		return mav;

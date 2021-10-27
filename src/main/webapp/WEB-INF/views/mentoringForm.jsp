@@ -43,13 +43,16 @@
   </div>
 </nav>
 	랜덤선택 버튼 클릭후 보이는 신청폼 페이지.
-	<c:forEach var="user_info" items="${data}">
+	${data.name }
+	${data.position_name }
+	${data.department_name}
+<%-- 	<c:forEach var="user_info" items="${data}">
 		<div class="random_mentor_info">
 			${user_info.department_name}
 			${user_info.name}
 			${user_info.position_name}
 		</div>
-	</c:forEach>
+	</c:forEach> --%>
 
 	<!-- 랜덤버튼 클릭이벤트 -->
 	<script>

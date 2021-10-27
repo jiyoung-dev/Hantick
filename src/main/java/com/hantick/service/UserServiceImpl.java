@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public List<UserDto> getRandomMentor() {
+	public UserDto getRandomMentor() {
 		return uMapper.selectRandomMentor();
 	}
 	 
