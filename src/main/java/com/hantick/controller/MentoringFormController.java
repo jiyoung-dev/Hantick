@@ -11,12 +11,16 @@ import com.hantick.dto.AllUserDTO;
 import com.hantick.dto.MentoringFormDTO;
 import com.hantick.dto.MentoringListDTO;
 import com.hantick.service.AllUserService;
+import com.hantick.service.UserService;
 
 @Controller
 public class MentoringFormController {
 
 	@Autowired
 	AllUserService allUserService;
+	
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping("allUserList")
 	public String getUserList(Model model, AllUserDTO dto) {
@@ -26,7 +30,7 @@ public class MentoringFormController {
 	
 	@GetMapping("insertBoard")
 	public String inserBoard(Model model) {
-		model.addAttribute("mentoringForm", new MentoringFormDTO());
+		model.addAttribute("randomMentor", userService.getRandomMentor());
 		return "mentoringForm/insertBoard";
 	}
 	

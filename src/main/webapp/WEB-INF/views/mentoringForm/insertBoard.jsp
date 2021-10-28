@@ -1,10 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style>
+	#formbox {    display: flex;
+    				flex-direction: column;
+   					 flex-wrap: wrap;
+  					  align-content: center; }
+</style>
 <%-- <script src="${pageContext.request.contextPath}/resources/common/js/jquery-3.3.1.min.js" ></script> --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -28,10 +36,10 @@
   <div class="collapse navbar-collapse" id="navbarsExample02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index">¸ŞÀÎÈ­¸é <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index">ë©”ì¸í™”ë©´ <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="mentorlist">1:1 ¸àÅä¸µ</a>
+        <a class="nav-link" href="mentorlist">1:1 ë©˜í† ë§</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -39,51 +47,56 @@
     </form>
   </div>
 </nav>
-<h1>¸àÅä¸µ ½ÅÃ»ÇÏ±â</h1>
-	<form name="sub1" action="insertBoard" method="post"  >
-		<table>
+<div id="formbox">
+	<form name="sub1" action="insertBoard" method="post"  >	
+	<table>		
 			<tr>
-				<td>ÀÌ ¸§</td>
+				<td align="center" colspan="2">
+				<h1>ë©˜í† ë§ ì‹ ì²­í•˜ê¸°</h1></td>
+			</tr>
+			<tr>
+				<td>ì´ ë¦„</td>
 				<td><input type="text" name="mentee_id_seq" required="required" /> <br /></td>
 			</tr>
 			<tr>
-				<td>ÁÖÁ¦</td>
+				<td>ì£¼ ì œ</td>
 				<td>
-					<input type = "radio" name = "subject" value="business" />¾÷¹«
-					<input type = "radio" name = "subject" value="free" checked="checked" />ÀÚÀ¯ <br /></td>
+					<input type = "radio" name = "subject" value="business" />ì—…ë¬´
+					<input type = "radio" name = "subject" value="free" checked="checked" />ììœ <br /></td>
 			</tr>
 			<tr>
-				<td>¸àÅä</td>
+				<td>ë©˜ í† </td>
 				<td>
-				<input type = "text" name="mentor_id_seq" /> <br /></td>
+				<input type = "text" name="mentor_id_seq" value="${randomMentor.id_seq }" readonly="readonly" /> <br /></td>
 			</tr>
 			<tr>
-				<td>¹æ ½Ä</td>
+				<td>ë°© ì‹</td>
 				<td>
-					<input type = "radio" name = "way" value="business" />´ë¸é
-					<input type = "radio" name = "way" value="free" checked="checked" />ºñ´ë¸é <br /></td>
+					<input type = "radio" name = "way" value="face" />ëŒ€ë©´
+					<input type = "radio" name = "way" value="untact" checked="checked" />ë¹„ëŒ€ë©´ <br /></td>
 			</tr>
 			<tr>
-				<td>³»¿ë</td>
+				<td>ë‚´ ìš©</td>
 				<td><textarea id="txt" rows="10" cols="50" name = "content" ></textarea> <br /></td>
 			</tr>
 			<tr>
-				<td><input type = "button" value="½ÅÃ»¿Ï·á" onclick="erchk()" >  <!-- Àü¼Û¹öÆ° --></td>
-				<td><input type = "reset" value="´Ù½Ã¾²±â" >  <!-- ÃÊ±âÈ­¹öÆ° --></td>
+				<td colspan="2" align="center"><input type = "button" value="ì‹ ì²­ì™„ë£Œ" onclick="erchk()" >  <!-- ì „ì†¡ë²„íŠ¼ -->
+				<input type = "reset" value="ë‹¤ì‹œì“°ê¸°" >  <!-- ì´ˆê¸°í™”ë²„íŠ¼ --></td>
 			</tr>
 	</table>
 	</form>
+	</div>
 <!-- 	<script type="text/javascript">
 		function erchk(){	
-				alert("½ÅÃ»ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù. ¸¶ÀÌÆäÀÌÁö¿¡¼­ È®ÀÎºÎÅ¹µå¸³´Ï´Ù.")
+				alert("ì‹ ì²­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤. ë§ˆì´í˜ì´ì§€ì—ì„œ í™•ì¸ë¶€íƒë“œë¦½ë‹ˆë‹¤.")
 				document.sub1.submit();
 		}
 	</script> -->
  	<script type="text/javascript">
 		function erchk(){
 			if(document.getElementById("txt").value == ""){
-				alert("³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.")
-			}e
+				alert("ë‚´ìš©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.")
+			}else
 				
 				document.sub1.submit();
 		}
