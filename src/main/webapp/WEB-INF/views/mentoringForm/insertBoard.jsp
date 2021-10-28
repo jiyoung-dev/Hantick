@@ -61,19 +61,20 @@
 			<tr>
 				<td>주 제</td>
 				<td>
-					<input type = "radio" name = "subject" value="business" />업무
-					<input type = "radio" name = "subject" value="free" checked="checked" />자유<br /></td>
+					<input type = "radio" name = "subject" value="업무" />업무
+					<input type = "radio" name = "subject" value="자유" checked="checked" />자유<br /></td>
 			</tr>
 			<tr>
 				<td>멘 토</td>
 				<td>
-				<input type = "text" name="mentor_id_seq" value="${randomMentor.id_seq }" readonly="readonly" /> <br /></td>
+				<input type = "text" name="mentor_id_seq" value="랜덤매칭" readonly="readonly" disabled="disabled" /> <br />
+				<input type="hidden" name="mentor_id_seq" value="${randomMentor.id_seq }" /></td>
 			</tr>
 			<tr>
 				<td>방 식</td>
 				<td>
-					<input type = "radio" name = "way" value="face" />대면
-					<input type = "radio" name = "way" value="untact" checked="checked" />비대면 <br /></td>
+					<input type = "radio" name = "way" value="대면" />대면
+					<input type = "radio" name = "way" value="비대면" checked="checked" />비대면 <br /></td>
 			</tr>
 			<tr>
 				<td>내 용</td>
