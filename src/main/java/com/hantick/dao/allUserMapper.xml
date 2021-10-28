@@ -12,6 +12,14 @@
 	<!-- 멘토링 신청하기 -->
 	<insert id="insertForm" parameterType="com.hantick.dto.MentoringListDTO">
 		INSERT INTO mydb.mentoring_list (mentoringform_id_seq, mentee_id_seq, mentor_id_seq, subject, way, content, review_flag, status, regdate) 
-		VALUES ((select *from (select max(mentoringform_id_seq)+1 from mydb.mentoring_list) next), #{mentee_id_seq}, #{mentee_id_seq}, #{subject}, #{way}, #{content}, DEFAULT, DEFAULT, DEFAULT);
+		VALUES ((select *from (select max(mentoringform_id_seq)+1 from mydb.mentoring_list) next), #{mentee_id_seq}, #{mentor_id_seq}, #{subject}, #{way}, #{content}, DEFAULT, DEFAULT, DEFAULT);
 	</insert>
+	
+	<!-- 멘토의 이름, 팀, 직책, 이메일 불러오기 -->
+	<select id="selectMentor" resultType="com.hantick.dto.AllUserDTO">
+		SELECT user_info.id_seq, department.department_name, user_info.name, position.position_name, user_info.mail
+		FROM user_info 
+		LEFT join position ON user_info.position_seq = position.position_seq 
+		JOIN department ON user_info.department_seq = department.department_seq WHERE id_seq = #{mentor_id_seq} 	
+	</select>
 </mapper>

@@ -32,4 +32,9 @@ public class AllUserServiceImpl implements AllUserService {
 		
 	}
 
+	@Override
+	public AllUserDTO selectMentor(AllUserDTO dto) {
+		return allUserMapper.selectMentor(dto);
+	}
+
 }

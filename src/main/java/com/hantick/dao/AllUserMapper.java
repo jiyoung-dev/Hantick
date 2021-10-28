@@ -12,6 +12,9 @@ public interface AllUserMapper {
 	public AllUserDTO selectOne(AllUserDTO dto);
 	
 	/* 멘토링 신청하기 */
-	void insertForm(MentoringFormDTO dto);	
+	void insertForm(MentoringFormDTO dto);
+	
+	/* 멘토의 이름, 팀, 직책, 이메일 불러오기 */
+	public AllUserDTO selectMentor(AllUserDTO dto);
 
 }

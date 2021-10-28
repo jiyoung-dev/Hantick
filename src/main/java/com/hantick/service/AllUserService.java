@@ -13,5 +13,7 @@ public interface AllUserService {
 	
 	/* 멘토링 신청하기 */
 	void insertForm(MentoringFormDTO dto);
+	
+	public AllUserDTO selectMentor(AllUserDTO dto);
 
 }

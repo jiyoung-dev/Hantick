@@ -1,5 +1,6 @@
 package com.hantick.controller;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hantick.dto.AllUserDTO;
 import com.hantick.dto.MentoringFormDTO;
-import com.hantick.dto.MentoringListDTO;
 import com.hantick.service.AllUserService;
 import com.hantick.service.UserService;
 
@@ -35,10 +35,13 @@ public class MentoringFormController {
 	}
 	
 	@PostMapping("insertBoard")
-	public String insertBoard(Model model, MentoringFormDTO dto) {
-		System.out.println("입력값은?" + dto);
+	public String insertBoard(Model model, MentoringFormDTO dto, AllUserDTO adto) {
+		System.out.println(" ★ 입력값은~? " + dto);
 		allUserService.insertForm(dto);
-		return "redirect:/mentorlist";
+		model.addAttribute("MentorInfo", allUserService.selectMentor(adto));
+		System.out.println(" ★ 멘토는~? " + adto);
+		return "mentoringForm/mentorInfo";
+		/* return "redirect:/mentorlist"; */
 	}
-
+	
 }
