@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
-	<title>¸àÅä¸µ ½ÅÃ»Æû</title>
+	<title>ë©˜í† ë§ ì‹ ì²­í¼</title>
 	
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -31,17 +31,24 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mentorlist">1:1 ¸àÅä¸µ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mypage">¸¶ÀÌÆäÀÌÁö</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mentorlist">1:1 ë©˜í† ë§</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mypage">ë§ˆì´í˜ì´ì§€</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div style="height: 120px;"></div>
-	·£´ı¼±ÅÃ or ÁöÁ¤¼±ÅÃ ¹öÆ° Å¬¸¯ÈÄ º¸ÀÌ´Â ½ÅÃ»Æû ÆäÀÌÁö.<br>
+	ëœë¤ì„ íƒ ê²°ê³¼ì…ë‹ˆë‹¤. <br>
 	${data.id_seq}
 	${data.name}
 	${data.position_name}
-	${data.department_name}
+	${data.department_name} <br>
+	
+	ì§€ì •ì„ íƒ ê²°ê³¼ì…ë‹ˆë‹¤. <br>
+	${param.idSeq}
+	${param.departmentName}
+	${param.userName}
+	${param.positionName}
+
 </body>
 </html>

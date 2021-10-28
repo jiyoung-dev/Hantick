@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
-	<title>¸àÅä¸®½ºÆ®</title>
+	<title>ë©˜í† ë¦¬ìŠ¤íŠ¸</title>
 	
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -31,8 +31,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mentorlist">1:1 ¸àÅä¸µ</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mypage">¸¶ÀÌÆäÀÌÁö</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mentorlist">1:1 ë©˜í† ë§</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="mypage">ë§ˆì´í˜ì´ì§€</a></li>
                 </ul>
             </div>
         </div>
@@ -54,13 +54,13 @@
 			<div class="top-container">
 				<!-- Random Button -->
 				<div class="random-btn">
-					<button type="button" onclick="fn_goRandomForm()" class="btn btn-success" id="btnRandom" value="·£´ı¸ÅÄª">·£´ı¸ÅÄª</button>
+					<button type="button" onclick="fn_goRandomForm()" class="btn btn-success" id="btnRandom" value="ëœë¤ë§¤ì¹­">ëœë¤ë§¤ì¹­</button>
 				</div>
 			
 				<!-- Select Box -->
 				<div class="select-box" >
 					<select name = "department-category">
-						<option value="" selected="selected">ÀüÃ¼º¸±â</option>
+						<option value="" selected="selected">ì „ì²´ë³´ê¸°</option>
 						<option value="">IPCC1</option>
 						<option value="">IPCC2</option>
 						<option value="">IPCC3</option>
@@ -70,19 +70,30 @@
 				</div>
 	   		</div>
 			
-			<!-- ÀüÃ¼ ¸àÅä¸®½ºÆ® Á¶È¸ -->
+			<!-- ì „ì²´ ë©˜í† ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ -->
 			<div class="mentor-list">
 				<div class="container">
-					<!-- user Á¤º¸¸¦ ¹İº¹¹®À» ÅëÇØ card Çü½ÄÀ¸·Î Ãâ·ÂÇÔ -->
+					<!-- user ì •ë³´ë¥¼ ë°˜ë³µë¬¸ì„ í†µí•´ card í˜•ì‹ìœ¼ë¡œ ì¶œë ¥í•¨ -->
 					<c:forEach var="user_info" items="${mentorList}">
 					<div class="card">
 						<div class="img">
 							<img class="mentor_img" width="200" height="200" src="assets/img/card1.jpg" alt="">
 						</div>
-						<div class="text">
+						<%-- <div class="text">
 							<h6>${user_info.id_seq} ${user_info.department_name} ${user_info.name} ${user_info.position_name}</h6>
-							<button type="button" onclick="fn_goAppointedForm()" class="btn btn-success" id="btnAppointed" value="ÁöÁ¤¼±ÅÃ">¼±ÅÃÇÏ±â</button>
-						</div>
+							<button type="button" onclick="fn_goAppointedForm()" class="btn btn-success" id="btnAppointed" value="ì§€ì •ì„ íƒ">ì„ íƒí•˜ê¸°</button>
+						</div> --%>
+						
+						<!-- divì—ì„œ formíƒœê·¸ë¡œ ë³€ê²½ -->
+						<form action="mentoringForm" class="js-form" onsubmit="fn_goAppointedForm()">
+							<input type="text" name="idSeq" value="${user_info.id_seq}" readonly/>
+							<input type="text" name="departmentName" value="${user_info.department_name}" readonly/>
+							<input type="text" name="userName" value="${user_info.name}" readonly/>
+							<input type="text" name="positionName" value="${user_info.position_name}" readonly/>
+							
+							<input type="submit" class="btn btn-success" id="btnAppointed" value="ì‹ ì²­í•˜ê¸°"/>
+							
+						</form>
 					</div>
 					</c:forEach>
 				</div>
@@ -130,32 +141,50 @@
         <div class="container"><small>Copyright &copy; 2021 Hantick</small></div>
     </div>
   
-    <!-- mentoringForm.jspÀ¸·Î ÀÌµ¿ Å¬¸¯ÀÌº¥Æ® ÇÔ¼ö -->
+    <!-- mentoringForm.jspìœ¼ë¡œ ì´ë™ í´ë¦­ì´ë²¤íŠ¸ í•¨ìˆ˜ -->
 	<script>
 	var btnRandom = document.getElementById("btnRandom");
 	/* var btnAppointed = document.getElementById("btnAppointed"); */
-	var btnAppointed = document.querySelectorAll(".text #btnAppointed"); 
+	var btnAppointed = document.querySelectorAll(".js-form #btnAppointed"); 
 	
 	btnRandom.addEventListener("click", function() {
-		console.log("·£´ı¹öÆ° Å¬¸¯!!!");
+		console.log("ëœë¤ë²„íŠ¼ í´ë¦­!!!");
 	});
 	
 	for(var i=0; i<btnAppointed.length; i++) {
-		btnAppointed[i].addEventListener("click", function() {
-			console.log("ÁöÁ¤¹öÆ° Å¬¸¯!!!");
+		btnAppointed[i].addEventListener("submit", function() {
+			console.log("ì§€ì •ë²„íŠ¼ í´ë¦­!!!");
 		})
 	}
 	
-	// ·£´ı½ÅÃ»Æû È­¸éÀ¸·Î ³Ñ°ÜÁÖ´Â ÇÔ¼ö (DB¿¡¼­ ·£´ı¸àÅä Á¶È¸ÇÑ °á°ú°ªÀÌ º¸¿©Áü)
+	// ëœë¤ì‹ ì²­í¼ í™”ë©´ìœ¼ë¡œ ë„˜ê²¨ì£¼ëŠ” í•¨ìˆ˜ (DBì—ì„œ ëœë¤ë©˜í†  ì¡°íšŒí•œ ê²°ê³¼ê°’ì´ ë³´ì—¬ì§)
 	function fn_goRandomForm() {
 		var url = "${pageContext.request.contextPath}/mentoringForm";
 		location.href = url; 
 	}
 	
-	// ÁöÁ¤¸àÅä ¼±ÅÃ½Ã ½ÅÃ»Æû È­¸éÀ¸·Î ³Ñ°ÜÁÖ´Â ÇÔ¼ö (¹öÆ°À» ¼±ÅÃÇÒ¶§ card¾È¿¡ µé¾îÀÖ´Â ¸àÅä Á¤º¸°¡ ¸ğµÎ ÇÊ¿äÇÔ)
+	// ì§€ì •ë©˜í†  ì„ íƒì‹œ ì‹ ì²­í¼ í™”ë©´ìœ¼ë¡œ ë„˜ê²¨ì£¼ëŠ” í•¨ìˆ˜ (ë²„íŠ¼ì„ ì„ íƒí• ë•Œ cardì•ˆì— ë“¤ì–´ìˆëŠ” ë©˜í†  ì •ë³´ê°€ ëª¨ë‘ í•„ìš”í•¨)
 	function fn_goAppointedForm() {
-		
+		var url = "${pageContext.request.contextPath}/mentoringForm";
+		location.href = url; 
 	}
+	
+	// ë©˜í†  ì¹´ë“œë¦¬ìŠ¤íŠ¸ ì •ë³´ ì „ì†¡ì„ ìœ„í•´ formíƒœê·¸ ë° submit typeì„ ì‚¬ìš©í•˜ëŠ” ê³¼ì •ì—ì„œ reloadë¥¼ ë§‰ê¸°ìœ„í•œ êµ¬ë¬¸ 
+	// reload functionì„ ì ìš©í•˜ë‹ˆê¹Œ, ì²«ë²ˆì§¸ cardì—ë§Œ ì ìš©ì´ ëœê±´ì§€ ë°ì´í„°ê°€ ì•ˆë¶ˆëŸ¬ì™€ì§. ì¼ë‹¨ init() í˜¸ì¶œì•ˆí•˜ëŠ”ê±¸ë¡œ.  
+	const form = document.querySelector(".js-form");
+	
+	function printText(event) {
+		event.preventDefault();
+		console.log("event!!!");
+	}
+	
+	function init() {
+		form.addEventListener("submit", printText, false);
+	}
+	
+/* 	init(); */
+	
+	
 	</script>
   
     <!-- Bootstrap core JS-->
