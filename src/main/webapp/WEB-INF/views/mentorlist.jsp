@@ -159,7 +159,7 @@
 	
 	// 랜덤신청폼 화면으로 넘겨주는 함수 (DB에서 랜덤멘토 조회한 결과값이 보여짐)
 	function fn_goRandomForm() {
-		var url = "${pageContext.request.contextPath}/mentoringForm";
+		var url = "${pageContext.request.contextPath}/insertBoard";
 		location.href = url; 
 	}
 	
