@@ -25,7 +25,7 @@ public class MentorlistController {
 	public ModelAndView mentorlist() {
 		List<UserDto> mentorList = userService.getMentorList();
 		ModelAndView mav = new ModelAndView("mentorlist");
-		mav.addObject("data", mentorList);
+		mav.addObject("mentorList", mentorList);
 		return mav;
 	}
 	
@@ -36,6 +36,7 @@ public class MentorlistController {
 		mav.addObject("data", randomMentor);
 		return mav;
 	}
+	
 	
 //	@RequestMapping(value = "/getRandomMentor", method = RequestMethod.GET)
 //	public String getRandomMentor(Model model) throws Exception {

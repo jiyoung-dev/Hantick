@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
 <html>
@@ -6,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
-	<title>메인화면</title>
+	<title>마이페이지</title>
 	
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -36,43 +37,26 @@
             </div>
         </div>
     </nav>
-    <!-- Masthead-->
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-            <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">한틱 멘토링서비스</h1>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Masthead Subheading-->
-            <p class="masthead-subheading font-weight-light mb-0">#소통 #공유 #동료애</p>
-        </div>
-    </header>
-    <!-- Mentorlist Section -->
-    <section class="page-section portfolio" id="mentorlist">
-        <div class="container">
-            <!-- Mentorlist Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">한틱 멘토링서비스</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Mentor Service Introduction -->
-            <div class="row justify-content-center">
-                
-                소개
-                
-            </div>
-        </div>
-    </section>
     
+    <!-- Mentorlist Section -->
+	<section class="page-section portfolio" id="mentorlist">
+	    <div class="container">
+	      
+	        <!-- Icon Divider-->
+	        <div class="divider-custom">
+	            <div class="divider-custom-line"></div>
+	            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+	            <div class="divider-custom-line"></div>
+	        </div>
+	        <!-- Portfolio Grid Items-->
+	        <div class="row justify-content-center">
+	          
+			마이페이지 입니다!!!
+	            
+	        </div>
+	    </div>
+	</section>
+  
     <!-- Footer-->
     <footer class="footer text-center">
         <div class="container">
@@ -110,7 +94,7 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; 2021 Hantick</small></div>
     </div>
-  
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
@@ -119,7 +103,6 @@
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>      
 </body>
 </html>
-
