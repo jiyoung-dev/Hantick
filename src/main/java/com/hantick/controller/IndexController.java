@@ -19,9 +19,16 @@ public class IndexController {
     }
 	
 	@GetMapping("/mypage")
-	public ModelAndView mentoringForm() {
+	public ModelAndView mypage() {
 		ModelAndView mav = new ModelAndView();
 	    mav.setViewName("mypage");
+		return mav;
+	}
+	
+	@GetMapping("/review")
+	public ModelAndView review() {
+		ModelAndView mav = new ModelAndView();
+	    mav.setViewName("review");
 		return mav;
 	}
 

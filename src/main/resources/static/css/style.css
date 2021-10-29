@@ -19,7 +19,6 @@
 
 .mentor-list .container{
 	display: inline-flex;
-	margin: 20px 10px 30px 190px; /* 상우하좌 */
 	flex-wrap: wrap; /* 상위요소 너비보다 하위요소 너비가 큰 경우 줄바꿈*/
 	justify-content: space-between;
 }
