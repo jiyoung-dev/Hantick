@@ -42,9 +42,9 @@ public class MentoringFormController {
 	
 	@PostMapping("insertBoard")
 	public String insertBoard(Model model, MentoringFormDTO dto, AllUserDTO adto) {
-		// SimpleMailMessage message = new SimpleMailMessage();
-		HashMap map = new HashMap();
-		Integer mentorId = 0; 
+	    SimpleMailMessage message = new SimpleMailMessage();
+//		HashMap map = new HashMap();
+//		Integer mentorId = 0; 
 		
 //		if ( dto.isRand() ) {
 //			mentorId = this.createRandMentor();
@@ -82,15 +82,15 @@ public class MentoringFormController {
 		adto.getMail();
 		*/
 		
-		/*
-		message.setFrom(null);
-		message.setTo(null);
-		message.setSubject(null);
-		message.setText(null);
+		
+		message.setFrom("dooly6618@naver.com");
+		message.setTo(adto.getMail());
+		message.setSubject("멘토링 신청이 왔습니다. - 한틱");
+		message.setText(adto.getName()+"님, 멘토링 신청이 왔습니다. 자세한 내용은 한틱을 이용해주시기 바랍니다.");
 		
 		javaMailSender.send(message);
 		System.out.println("멘토에게 이메일을 보냈습니다.");
-		*/
+		
 		return "mentoringForm/mentorInfo";
 		/* return "redirect:/mentorlist"; */
 	}
