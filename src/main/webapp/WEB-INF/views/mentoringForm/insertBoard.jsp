@@ -96,10 +96,12 @@
  	<script type="text/javascript">
 		function erchk(){
 			if(document.getElementById("txt").value == ""){
-				alert("내용을 입력해주세요.")
-			}else
-				
-				document.sub1.submit();
+				alert("내용을 입력해주세요.");
+			}else{
+				alert("신청이 완료되었습니다.");
+				document.sub1.submit();			
+			}
+			
 		}
 	</script>
 </body>

@@ -30,6 +30,8 @@ public class AllUserServiceImpl implements AllUserService {
 	public void insertForm(MentoringFormDTO dto) {
 		allUserMapper.insertForm(dto);
 		
+	//	this.insert( "allUserInsert", dto );
+		
 	}
 
 	@Override

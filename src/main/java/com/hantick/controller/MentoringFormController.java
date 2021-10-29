@@ -1,7 +1,10 @@
 package com.hantick.controller;
 
-import org.apache.ibatis.annotations.Param;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,9 @@ public class MentoringFormController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	JavaMailSender javaMailSender;
+	
 	@RequestMapping("allUserList")
 	public String getUserList(Model model, AllUserDTO dto) {
 		model.addAttribute("UserList", allUserService.getUserList(dto));
@@ -36,10 +42,55 @@ public class MentoringFormController {
 	
 	@PostMapping("insertBoard")
 	public String insertBoard(Model model, MentoringFormDTO dto, AllUserDTO adto) {
+		// SimpleMailMessage message = new SimpleMailMessage();
+		HashMap map = new HashMap();
+		Integer mentorId = 0; 
+		
+//		if ( dto.isRand() ) {
+//			mentorId = this.createRandMentor();
+//		} else {
+//			mentorId = dto.getMentorId();
+//		}
+//		mentorId = ( dto.isRand() ) ? this.createRandMentor() : dto.getMentorId();
+		
+//		map.set( "mentorId", mentorId );
+		
 		System.out.println(" ★ 입력값은~? " + dto);
-		allUserService.insertForm(dto);
-		model.addAttribute("MentorInfo", allUserService.selectMentor(adto));
+		adto = allUserService.selectMentor(adto);
+		
 		System.out.println(" ★ 멘토는~? " + adto);
+		
+		System.out.println("---------------- mentorId ----------------");
+		System.out.println(adto.getMentor_id_seq());
+		System.out.println(adto.getId_seq());
+		System.out.println("------------------------------------------");
+		
+		System.out.println(adto.getName());
+		System.out.println(adto.getDepartment_name());
+		System.out.println(adto.getPosition_name());
+		System.out.println(adto.getMail());
+		
+		//allUserService.selectMentor(adto);
+		model.addAttribute("MentorInfo", adto);
+		
+		allUserService.insertForm(dto);
+		/*
+		adto.getId_seq();
+		adto.getName();
+		adto.getDepartment_name();
+		adto.getPosition_name();
+		adto.getMail();
+		*/
+		
+		/*
+		message.setFrom(null);
+		message.setTo(null);
+		message.setSubject(null);
+		message.setText(null);
+		
+		javaMailSender.send(message);
+		System.out.println("멘토에게 이메일을 보냈습니다.");
+		*/
 		return "mentoringForm/mentorInfo";
 		/* return "redirect:/mentorlist"; */
 	}
