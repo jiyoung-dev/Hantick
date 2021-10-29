@@ -85,7 +85,7 @@
 						</div> --%>
 						
 						<!-- div에서 form태그로 변경 -->
-						<form action="mentoringForm" class="js-form" onsubmit="fn_goAppointedForm()">
+						<form action="mentoringForm" class="js-form" onsubmit="fn_goAppointedForm()" method="post">
 							<input type="text" name="idSeq" value="${user_info.id_seq}" readonly/>
 							<input type="text" name="departmentName" value="${user_info.department_name}" readonly/>
 							<input type="text" name="userName" value="${user_info.name}" readonly/>

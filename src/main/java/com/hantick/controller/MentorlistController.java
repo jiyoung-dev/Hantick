@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,10 +30,10 @@ public class MentorlistController {
 		return mav;
 	}
 	
-	@GetMapping("/mentoringForm")
+	@RequestMapping("/mentoringForm")
 	public ModelAndView mentoringForm() {
 		UserDto randomMentor = userService.getRandomMentor();
-		ModelAndView mav = new ModelAndView("mentoringForm");
+		ModelAndView mav = new ModelAndView("/mentoringForm/insertBoard");
 		mav.addObject("data", randomMentor);
 		return mav;
 	}
