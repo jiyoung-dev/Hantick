@@ -67,8 +67,16 @@
 			<tr>
 				<td>멘 토</td>
 				<td>
-				<input type = "text" name="mentor_id_seq" value="랜덤매칭" readonly="readonly" disabled="disabled" /> <br />
-				<input type="hidden" name="mentor_id_seq" value="${randomMentor.id_seq }" /></td>
+				<c:if test="${randomMentor.id_seq != null }">
+					<input type = "text" name="mentor_id_seq" value="랜덤매칭" readonly="readonly" disabled="disabled" /> <br />
+					<input type="hidden" name="mentor_id_seq" value="${randomMentor.id_seq }" />
+				</c:if>
+				<c:if test="${param.idSeq != null}">
+					<input type = "text" name="mentor_id_seq" value="${param.departmentName} ${param.userName} ${param.positionName}" readonly="readonly" disabled="disabled" /> <br />
+					<input type="hidden" name="mentor_id_seq" value="${param.idSeq}" />
+				</c:if>
+				
+				</td>
 			</tr>
 			<tr>
 				<td>방 식</td>

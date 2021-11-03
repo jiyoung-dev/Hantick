@@ -91,7 +91,7 @@ public class MentoringFormController {
 		javaMailSender.send(message);
 		System.out.println("멘토에게 이메일을 보냈습니다.");
 		
-		return "mentoringForm/mentorInfo";
+		return "mentorlist";
 		/* return "redirect:/mentorlist"; */
 	}
 	
